@@ -9,7 +9,7 @@ I-distance kompozit) bolje predviđaju kasniji uspeh restorana od obične prose�
 ## Struktura
 | Putanja | Sadržaj |
 |---|---|
-| `../materijali/` | prethodni diplomski radovi, concept note, NYC/Yelp audit |
+| `materijali/` | prethodni diplomski radovi, concept note, NYC/Yelp audit — **samo lokalno, nije u gitu** |
 | `apify/` | tačni unosi za Apify aktore (ponovljivost skidanja) |
 | `podaci/raw/` | sirovi izvozi sa Apify-ja — **nisu u gitu** (veličina, ID-jevi recenzenata) |
 | `podaci/obradjeni/` | očišćeni skupovi i izvedene tabele |

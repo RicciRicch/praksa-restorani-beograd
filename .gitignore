@@ -1,2 +1,20 @@
 # Polazni materijali (tuđi radovi) — samo lokalno, ne idu u git
 materijali/
+
+# Sirovi podaci sa Apify-ja (veliki fajlovi, sadrže ID-jeve recenzenata) — ne idu u git
+podaci/raw/*
+!podaci/raw/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# Tajne (API ključevi)
+.env
+
+# Sistem / Office
+Thumbs.db
+desktop.ini
+~$*
