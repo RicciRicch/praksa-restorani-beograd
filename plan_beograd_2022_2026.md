@@ -1,5 +1,7 @@
 # Plan: Beograd TripAdvisor 2022 → 2026 (predviđanje uspeha restorana)
 
+> **ODBAČEN 16.10.2026** — zamenjen planom `plan_ristanovic_2018_2026.md` (skidanje svih recenzija preko Apify-ja je preskupo, budžeta nema). Ostavljen radi istorije odluka.
+
 ## Odluke (16.10.2026)
 - Uzorak: **100 beogradskih restorana sa TripAdvisora, stratifikovano po oceni iz 2022** (ne top 100 — vidi „Izbor uzorka“).
   - Razlog: top 100 ima suženo raspon ocena (~4.5–5) → slabe korelacije; Wayback za 2022 ima samo strane 1–2 liste (top 60, snimak 3.6.2022).

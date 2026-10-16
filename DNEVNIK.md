@@ -1,6 +1,6 @@
 # Dnevnik rada
 
-Hronološki zapis odluka i koraka. Detalji odluka su u `plan_beograd_2022_2026.md`.
+Hronološki zapis odluka i koraka. Detalji odluka su u `plan_ristanovic_2018_2026.md` (ranije `plan_beograd_2022_2026.md`).
 
 ## 2026-10-16
 - Pregledan plan (Beograd TripAdvisor 2022 → 2026).
@@ -20,4 +20,4 @@ Hronološki zapis odluka i koraka. Detalji odluka su u `plan_beograd_2022_2026.m
 - **Wayback alternativa** (`skripte/01_wayback_pokrivenost.py` → `podaci/obradjeni/wayback_pokrivenost.csv`): stranica restorana iz 2022 sadrži ocenu, ukupan broj recenzija, broj po jezicima i raspodelu ocena (samo engleski). Od 93 kandidata (72 sa TA liste 2022 + 21 iz probe): snimak 2022 ima 58, 2025/26 ima 57, **oba samo 41** → premalo za glavni uzorak.
 - **Ristanović 2019** (`materijali/Diplomski rad verzija 3.doc`): top 100 Beograd (TA, ~avg. 2018), 33.093 recenzije; filter recenzent ≥10 ukupnih TA recenzija (20.091) i restoran ≥10 takvih → 89 restorana. Ocena korigovana percentilima (broj recenzija recenzenta; odstupanje od proseka recenzenta), konačna ocena = prosek „naše ocene“ + (1 − CV). Samo opisno poređenje sa TA rangom, bez provere predviđanja.
 - Iz `.doc` izvučena cela tabela rezultata (89 restorana) → `podaci/obradjeni/ristanovic_2019_tabela.csv` (zbirovi se slažu sa tekstom: 32.324 / 19.906 recenzija).
-- **Moguć novi pravac:** pratiti tih 89 restorana do 2026 (Apify spisak za 89 ≈ $0.45) i testirati da li je Ristanovićev rang iz 2018 bolje predvideo uspeh od TA ranga. Čeka odluku.
+- **Novi pravac usvojen:** pratiti tih 89 restorana do 2026 (Apify spisak za 89 ≈ $0.45) i testirati da li je Ristanovićev rang iz 2018 bolje predvideo uspeh od TA ranga. → `plan_ristanovic_2018_2026.md` (v2).
