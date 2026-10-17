@@ -29,13 +29,17 @@ od ranga koji je prikazivao TripAdvisor?
 | `id_2018` | redni broj iz rada, 1–89 (kolona `KONACNI RANG`, samo kao jednoznačan ID) |
 | `name_2018` | naziv kako stoji u radu |
 | `tripadvisor_url` | tačan URL stranice restorana |
-| `tripadvisor_location_id` | broj iz URL-a (deo posle `d`) |
+| `tripadvisor_location_id` | broj iz URL-a, bez slova `d` (npr. `8447925`; isto kao polje `id` u Apify izlazu) |
 | `match_note` | napomena ako je uparivanje nesigurno; `NOT_FOUND` ako nije nađen (red se ne preskače) |
 
-Zamke pri uparivanju:
-- *Burrito Madre* je **dvaput** (dve lokacije), kao i *Smokvica* / *Smokvica – Molerova* → upariti po lokaciji, ne po imenu.
-- *Kafana Question Mark* i *Znak Pitanja* su verovatno **ista kafana „?“** pod dva TA unosa → proveriti i zabeležiti u `match_note`.
-- Nazivi su TA „slugovi“ (donje crte, bez dijakritika, npr. `Cevap_kod_Dekija`) → tražiti po smislu.
+✅ **Urađeno 17. 10. 2026** (`skripte/02_upari_url.py`): **89/89 upareno**, 89 različitih TA ID-jeva, nijedan `NOT_FOUND`.
+- Izvori: TA lista Beograda sa Wayback-a iz 2018 (rangovi 1–120), Wayback CDX spisak svih arhiviranih stranica restorana u Beogradu, a za 5 restorana pretraga weba.
+- Ručna uparivanja sa obrazloženjem: `podaci/izvor/uparivanje_rucno.csv` (14 restorana).
+- *Burrito Madre* ×2: TA #14 = d9844651, TA #27 = d7112940 (uparen po broju recenzija na TA listi 26. 7. 2018: 125 i 466 prema 125 i 470 u radu).
+- *Kafana Question Mark* (d3411420) i *Znak Pitanja* (d8427347) su dva TA unosa iste kafane „?“, u radu dva reda → zadržana oba, navedeno u `match_note`.
+- Greške u nazivima u radu: „Soga“ = Sofa Lounge bar, „Communale“ = Comunale, „Star_Koliba“ = Stara Koliba, „Careva_Cupija“ = Careva Ćuprija.
+- Provera: za 79 restorana sa liste iz 2018 broj recenzija se slaže sa radom (odstupanje > 15% samo kod 2, oba sa ranijeg snimka iz januara 2018) → Ristanovićevi podaci su sa kraja jula 2018.
+- *Restaurant Žabar* (Zemun): pretraga pominje „CLOSED“ i novi naziv „Naš Žabar“ → proveriti u 1b.
 
 **1b. Trenutno stanje** (Apify `maxcopell/tripadvisor`, `startUrls` = 89 URL-ova), dodaje se u istu tabelu:
 

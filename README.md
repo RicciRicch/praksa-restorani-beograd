@@ -12,8 +12,8 @@ a proverava na recenzijama od 2019. do 2026.
 | Korak | Status |
 |---|---|
 | Spisak 89 restorana iz rada (2019) | ✅ `podaci/izvor/ristanovic_2019_tabela.csv` |
-| 1a. Uparivanje sa TA URL-ovima → `podaci/restorani_89.csv` | ⏳ sledeće |
-| 1b. Trenutno stanje (Apify, ≈ $0.50) | ⏳ |
+| 1a. Uparivanje sa TA URL-ovima → `podaci/restorani_89.csv` | ✅ 89/89 |
+| 1b. Trenutno stanje (Apify, ≈ $0.50) | ⏳ sledeće (unos: `apify/02_trenutno_stanje_89.json`) |
 | 1c. Procena troška koraka 2 → mentor | ⏳ |
 | 2. Sve recenzije → `podaci/recenzije_89.csv` | čeka odobrenje |
 
@@ -32,5 +32,6 @@ a proverava na recenzijama od 2019. do 2026.
 ## Pokretanje
 ```bash
 python skripte/01_izvuci_spisak_ristanovic.py
+python skripte/02_upari_url.py
 ```
 Skripte se pokreću iz korena repoa. Potreban je Python 3.10+ (bez dodatnih paketa za sada).

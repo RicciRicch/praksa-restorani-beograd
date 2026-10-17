@@ -3,6 +3,14 @@
 Hronološki zapis odluka i koraka. Aktuelni plan: [`PLAN.md`](PLAN.md).
 Odbačeni planovi i skripte ostaju u istoriji gita (`git log`).
 
+## 2026-10-17: korak 1a završen (uparivanje URL-ova)
+- `skripte/02_upari_url.py` → `podaci/restorani_89.csv`: **89/89 upareno**, 89 jedinstvenih TA ID-jeva, nijedan `NOT_FOUND`.
+- Izvori (besplatno): TA lista Beograda sa Wayback-a iz 2018 (snimci 31.1., 24.7., 26.7.2018 i 21.1.2019; rangovi 1–120), Wayback CDX spisak 785 arhiviranih stranica restorana u Beogradu, pretraga weba za 5 restorana kojih nema u arhivi (Salaš 034, Žabar, Careva Ćuprija, MYDAN, Cantina de Frida).
+- Ručna uparivanja sa obrazloženjem: `podaci/izvor/uparivanje_rucno.csv` (duplikati imena, greške u nazivima u radu, Zemun).
+- Provera: broj recenzija na TA listi 2018 se slaže sa radom (79 restorana) → Ristanovićevi podaci su sa kraja jula 2018.
+- Napravljen Apify unos za korak 1b: `apify/02_trenutno_stanje_89.json` (89 URL-ova).
+- Wayback je povremeno bio nedostupan („Temporarily Offline“); izvori su keširani u `podaci/raw/wayback/` (van gita), skripta ih ponovo preuzima ako fale.
+
 ## 2026-10-17: dizajn određen (mentor)
 - Mentor odredio dizajn ([`docs/uputstvo_mentora.md`](docs/uputstvo_mentora.md)):
   - **kohorta = 89 restorana iz rada Jelene Ristanović (2019)**, samo spisak, ne rang ni metoda;

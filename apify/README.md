@@ -5,7 +5,7 @@ Unosi sa listom URL-ova prave se skriptom iz `podaci/restorani_89.csv` (posle ko
 
 | Fajl | Aktor | Izlaz (`podaci/raw/`) | Korak |
 |---|---|---|---|
-| `02_trenutno_stanje_89.json` | `maxcopell/tripadvisor` | `trenutno_stanje_89.json` | 1b, 89 URL-ova, ≈ $0.50 |
+| `02_trenutno_stanje_89.json` | `maxcopell/tripadvisor` | `trenutno_stanje_89.json` | 1b, 89 URL-ova, ≈ $0.50 (pravi ga `skripte/02_upari_url.py`) |
 | `03_recenzije_proba.json` | `maxcopell/tripadvisor-reviews` | `recenzije_proba.json` | 2, proba na 2–3 restorana |
 | `04_recenzije_89.json` | `maxcopell/tripadvisor-reviews` | `recenzije_89.json` | 2, svih 89 (posle odobrenja) |
 
