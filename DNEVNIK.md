@@ -1,25 +1,23 @@
 # Dnevnik rada
 
-Hronološki zapis odluka i koraka. Detalji odluka su u `plan_ristanovic_2018_2026.md` (ranije `plan_beograd_2022_2026.md`).
+Hronološki zapis odluka i koraka. Aktuelni plan: [`PLAN.md`](PLAN.md).
+Odbačeni planovi i skripte ostaju u istoriji gita (`git log`).
 
-## 2026-10-16
-- Pregledan plan (Beograd TripAdvisor 2022 → 2026).
-- Wayback provera: za 2022 postoje samo strane 1–2 TA liste za Beograd (top 60, snimak 3.6.2022); strane 3–4 (rang 61–100) nisu arhivirane na .com.
-- **Odluka:** umesto top 100 — stratifikovan nasumičan uzorak od 100 restorana po oceni iz 2022 (kriterijumi u planu). Razlog: suženi raspon ocena kod top 100 i nedostupan Wayback.
-- Pripremljeni Apify unosi za korak 1 (`apify/01_*`).
-- Projekat premešten u `project/`, pa vraćen u koren repoa; `materijali/` ostaje samo lokalno (u `.gitignore`).
-- **Proba spiska** (`maxcopell/tripadvisor`, unos `01_spisak_restorana_proba.json`) → `podaci/raw/ta_beograd_spisak_proba.json`:
-  - 46 restorana (traženo 50), bez duplikata, svi `type = RESTAURANT`, nijedan `isNearbyResult`.
-  - TA kaže: **1.915 restorana u Beogradu** → ceo spisak ≈ 1.900–2.000 stavki.
-  - Polja koja trebaju postoje: `id`, `webUrl`, `numberOfReviews`, `rating`, `rankingPosition`/`rankingString`, `isClosed`, `isLongClosed`, `subcategories`, `establishmentTypes`, `cuisines`, `ratingHistogram`, `rawRanking`.
-  - Redosled nije po rangu (TA „featured“ sortiranje).
-  - `rankingString` nije uvek „Restaurants in Belgrade“: 2 iz **Zemuna** (zasebna TA lokacija, svoj rang) i 1 rangiran kao „Bars & Pubs“. → rang ne porediti preko različitih lista; tip filtrirati preko `establishmentTypes`/`subcategories`.
-  - Nijedan zatvoren (`isClosed`/`isLongClosed` = false) — očekivano za top restorane; da li aktor vraća zatvorene vidi se tek na celom spisku.
-  - Sve trenutne vrednosti (`rating`, `numberOfReviews`, `ratingHistogram`) su stanje 2026 → **ne koriste se za izbor uzorka**, samo za grubo filtriranje kandidata.
-- **Budžet:** Apify FREE plan naplaćuje $0.005 po restoranu i $0.005 po recenziji → skidanje svih recenzija za 100 restorana ≈ $80–200. Budžeta nema → **plan sa recenzijama otpada**. Ceo spisak (3000) nije pokrenut.
-- **Wayback alternativa** (`skripte/01_wayback_pokrivenost.py` → `podaci/obradjeni/wayback_pokrivenost.csv`): stranica restorana iz 2022 sadrži ocenu, ukupan broj recenzija, broj po jezicima i raspodelu ocena (samo engleski). Od 93 kandidata (72 sa TA liste 2022 + 21 iz probe): snimak 2022 ima 58, 2025/26 ima 57, **oba samo 41** → premalo za glavni uzorak.
-- **Ristanović 2019** (`materijali/Diplomski rad verzija 3.doc`): top 100 Beograd (TA, ~avg. 2018), 33.093 recenzije; filter recenzent ≥10 ukupnih TA recenzija (20.091) i restoran ≥10 takvih → 89 restorana. Ocena korigovana percentilima (broj recenzija recenzenta; odstupanje od proseka recenzenta), konačna ocena = prosek „naše ocene“ + (1 − CV). Samo opisno poređenje sa TA rangom, bez provere predviđanja.
-- Iz `.doc` izvučena cela tabela rezultata (89 restorana) → `podaci/obradjeni/ristanovic_2019_tabela.csv` (zbirovi se slažu sa tekstom: 32.324 / 19.906 recenzija).
-- **Novi pravac usvojen:** pratiti tih 89 restorana do 2026 (Apify spisak za 89 ≈ $0.45) i testirati da li je Ristanovićev rang iz 2018 bolje predvideo uspeh od TA ranga. → `plan_ristanovic_2018_2026.md` (v2).
-- Želja: top 100 iz 2022, rang Ristanovićevom metodom na recenzijama do 2022, provera na 2023–2026 (opcija 1). Zahteva sve pojedinačne recenzije → ≈ $100–150 (Apify Starter); besplatno ≈ 2–3 restorana mesečno. Sopstveni skrejper odbačen (TA blokira; zaobilaženje zaštite krši uslove korišćenja).
-- Mentoru poslate dve opcije: (1) top 100 iz 2022 uz finansiranje, (2) Ristanovićevih 89 iz 2018 (≈ $0.45). **Čeka se odgovor.**
+## 2026-10-17: dizajn određen (mentor)
+- Mentor odredio dizajn ([`docs/uputstvo_mentora.md`](docs/uputstvo_mentora.md)):
+  - **kohorta = 89 restorana iz rada Jelene Ristanović (2019)**, samo spisak, ne rang ni metoda;
+  - **trening:** recenzije do 31. 12. 2018; **provera:** 2019–2026;
+  - poređenje: prikazani TA rang vs. kompozitni rang sa kredibilitetom recenzenata (kompozit i intervale poverenja daje mentor);
+  - korak 1 odmah (trenutno stanje, ≈ $0.50), korak 2 (sve recenzije) posle procene troška; trošak pokriva mentor.
+- Odbačeno uz obrazloženje: „top 100 iz 2022“ (pristrasnost preživljavanja), samo trenutno stanje (ocena kumulativna → prediktor i ishod dele podatke), Ristanovićev rang (sabira skale 1–5 i 0–1, nagrađuje male restorane).
+- Repo sređen prema tome: uklonjeni stari planovi, Wayback provera i Apify unosi za ceo Beograd; dodati `PLAN.md`, `docs/uputstvo_mentora.md`, `skripte/01_izvuci_spisak_ristanovic.py`.
+- Provera kohorte: 89 jedinstvenih redova; *Burrito Madre* ×2 i *Smokvica* / *Smokvica – Molerova* (kako je mentor naveo); dodatno *Kafana Question Mark* i *Znak Pitanja* verovatno ista kafana „?“ → proveriti pri uparivanju.
+- Provera aktora `maxcopell/tripadvisor-reviews`: ima sva tražena polja osim **`reviewer_helpful_votes`** (na nivou recenzenta postoji samo `contributions`) → javiti mentoru.
+
+## 2026-10-16: istraživanje opcija (sažetak)
+- Prvi plan (Beograd 2022 → 2026, sve recenzije) pokazao se preskupim na Apify FREE planu ($0.005 po recenziji).
+- Wayback Machine: za 2022 sačuvan samo top 60 beogradske TA liste; od 93 restorana samo 41 ima snimak stranice i iz 2022 i iz 2025/26 → Wayback nije dovoljan izvor.
+- Proba Apify spiska (46 restorana Beograda): aktor vraća `id`, `webUrl`, `numberOfReviews`, `rating`, `rankingPosition`, `isClosed`, `ratingHistogram`, `priceLevel`, `cuisines`… Zemun ima zaseban TA rang.
+- U Ristanovićevom radu (`materijali/Diplomski rad verzija 3.doc`) nađena kompletna tabela 89 restorana (top 100 TA, ~avg. 2018) → `podaci/izvor/ristanovic_2019_tabela.csv`; zbirovi se slažu sa tekstom rada (32.324 / 19.906 recenzija).
+- Mentoru poslate opcije; odgovor 17. 10. (gore).
+- Postavljen git repo (privatni GitHub `RicciRicch/praksa-restorani-beograd`); `materijali/` i `podaci/raw/` van gita.

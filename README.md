@@ -1,15 +1,36 @@
-# Predviđanje uspeha restorana — Beograd, TripAdvisor 2018 → 2026
+# Predviđanje uspeha restorana: kohorta 89 beogradskih restorana (TripAdvisor, 2018 → 2026)
 
-Da li sofisticiraniji pokazatelji kvaliteta (Bayesov prosek, korekcija za strogost recenzenta,
-I-distance kompozit) bolje predviđaju kasniji uspeh restorana od obične prosečne ocene?
+Da li kompozitni rang koji ponderiše kredibilitet recenzenata bolje predviđa kasniji uspeh restorana
+od ranga koji prikazuje TripAdvisor? Rang se gradi na recenzijama do 31. 12. 2018,
+a proverava na recenzijama od 2019. do 2026.
 
-- **Plan (aktuelni):** [`plan_ristanovic_2018_2026.md`](plan_ristanovic_2018_2026.md) — stari, odbačeni: [`plan_beograd_2022_2026.md`](plan_beograd_2022_2026.md)
+- **Plan:** [`PLAN.md`](PLAN.md)
+- **Uputstvo mentora** (osnova plana): [`docs/uputstvo_mentora.md`](docs/uputstvo_mentora.md)
 - **Dnevnik rada:** [`DNEVNIK.md`](DNEVNIK.md)
 
-## Struktura
-| Putanja | Sadržaj |
+## Stanje
+| Korak | Status |
 |---|---|
-| `materijali/` | prethodni diplomski radovi, concept note, NYC/Yelp audit — **samo lokalno, nije u gitu** |
-| `apify/` | tačni unosi za Apify aktore (ponovljivost skidanja) |
-| `podaci/raw/` | sirovi izvozi sa Apify-ja — **nisu u gitu** (veličina, ID-jevi recenzenata) |
-| `podaci/obradjeni/` | očišćeni skupovi i izvedene tabele |
+| Spisak 89 restorana iz rada (2019) | ✅ `podaci/izvor/ristanovic_2019_tabela.csv` |
+| 1a. Uparivanje sa TA URL-ovima → `podaci/restorani_89.csv` | ⏳ sledeće |
+| 1b. Trenutno stanje (Apify, ≈ $0.50) | ⏳ |
+| 1c. Procena troška koraka 2 → mentor | ⏳ |
+| 2. Sve recenzije → `podaci/recenzije_89.csv` | čeka odobrenje |
+
+## Struktura
+| Putanja | Sadržaj | U gitu |
+|---|---|---|
+| `PLAN.md`, `DNEVNIK.md` | plan i hronologija odluka | da |
+| `docs/` | uputstvo mentora | da |
+| `apify/` | tačni unosi za Apify aktore (ponovljivost) | da |
+| `skripte/` | Python skripte, numerisane redom izvršavanja | da |
+| `podaci/izvor/` | ulazni podaci iz prethodnih radova | da |
+| `podaci/*.csv` | konačne tabele (`restorani_89.csv`, `recenzije_89.csv`) | da (`recenzije_89.csv` odlučiti — lični podaci) |
+| `podaci/raw/` | sirovi Apify JSON, kakav jeste | **ne** (veličina, lični podaci recenzenata) |
+| `materijali/` | prethodni radovi, concept note | **ne** (tuđi radovi) |
+
+## Pokretanje
+```bash
+python skripte/01_izvuci_spisak_ristanovic.py
+```
+Skripte se pokreću iz korena repoa. Potreban je Python 3.10+ (bez dodatnih paketa za sada).
