@@ -115,7 +115,7 @@ def main():
                         raise SystemExit(f"Više TA unosa za {ime} ({sorted(c)}) → dodati u uparivanje_rucno.csv")
                     url = next(iter(c.values()))
                     slug = URL_RE.search(url).group(3)
-                    if URL_RE.search(url).group(2) in lista_ids:
+                    if izvor is cdx and URL_RE.search(url).group(2) in lista_ids:
                         opis = "na Wayback listi 2018 pod drugim slugom"
                     napomena = "; ".join(x for x in (opis, f"slug na TA: {slug}" if slug != ime else "") if x)
                     break
