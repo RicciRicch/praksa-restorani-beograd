@@ -13,8 +13,8 @@ a proverava na recenzijama od 2019. do 2026.
 |---|---|
 | Spisak 89 restorana iz rada (2019) | ✅ `podaci/izvor/ristanovic_2019_tabela.csv` |
 | 1a. Uparivanje sa TA URL-ovima → `podaci/restorani_89.csv` | ✅ 89/89 |
-| 1b. Trenutno stanje (Apify, ≈ $0.50) | ⏳ sledeće (unos: `apify/02_trenutno_stanje_89.json`) |
-| 1c. Procena troška koraka 2 → mentor | ⏳ |
+| 1b. Trenutno stanje (Apify, ≈ $0.38) | ✅ open 71 · closed 11 · not_found 7 (čeka proveru u pregledaču) |
+| 1c. Procena troška koraka 2 → mentor | ✅ ≈ 45.000 recenzija → ≈ $85 (BRONZE) / $225 (FREE); ⏳ slanje mentoru |
 | 2. Sve recenzije → `podaci/recenzije_89.csv` | čeka odobrenje |
 
 ## Struktura
@@ -33,5 +33,7 @@ a proverava na recenzijama od 2019. do 2026.
 ```bash
 python skripte/01_izvuci_spisak_ristanovic.py
 python skripte/02_upari_url.py
+python skripte/03_trenutno_stanje.py 2026-10-18
 ```
+Skripta 03 čita `podaci/raw/trenutno_stanje_89.json` (izvoz Apify dataseta `fD0hruEEb3J6hOWWg`, van gita).
 Skripte se pokreću iz korena repoa. Potreban je Python 3.10+ (bez dodatnih paketa za sada).

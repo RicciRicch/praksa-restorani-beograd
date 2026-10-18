@@ -3,6 +3,16 @@
 Hronološki zapis odluka i koraka. Aktuelni plan: [`PLAN.md`](PLAN.md).
 Odbačeni planovi i skripte ostaju u istoriji gita (`git log`).
 
+## 2026-10-18: korak 1b završen (trenutno stanje) i procena troška
+- Apify `maxcopell/tripadvisor` za 89 URL-ova (run `lHqGf8kfgYLCmKlPS`, dataset `fD0hruEEb3J6hOWWg`, ≈ $0.38): 75 stavki, 14 stranica neuspelo, Znak Pitanja (d8427347) vraćen kao Kafana Question Mark (d3411420) → TA je verovatno spojio unose.
+- Potrebna polja sačuvana u `podaci/raw/trenutno_stanje_89.json` (van gita; pun izvoz dataseta može da zameni fajl, skripta radi isto).
+- `skripte/03_trenutno_stanje.py` → dopunjen `podaci/restorani_89.csv`: **open 71 · closed 11 · not_found 7**.
+- Ručna provera 15 restorana koje Apify nije vratio (pretraga weba, naslovi TA stranica) → `podaci/izvor/provera_1b_rucno.csv`: 8 zatvorenih, 7 ostaje za proveru u pregledaču.
+- **Obrazac:** Apify ne uspeva da učita stranice zatvorenih restorana → rizik da u koraku 2 nedostaje istorija zatvorenih (pristrasnost preživljavanja) → uključiti u probu.
+- **Procena koraka 2:** Σ `n_reviews_now` = 41.256 (74 restorana) + ≈ 3.500–4.000 zatvorenih → ≈ 45.000 recenzija ≈ **$85** (BRONZE) / **$225** (FREE).
+- **Ispravka koraka 1a:** `match_note` je greškom imao „na Wayback listi 2018 pod drugim slugom“ i kod restorana nađenih direktno na listi (greška u `02_upari_url.py`). Ispravljeno; URL-ovi i ID-jevi nepromenjeni.
+- Preimenovani (isti TA ID): Hotel Moskva Restaurant → Restaurant Tchaikovsky, Salon 5 → Salon 5a (Zemun), Walter → Walter – TC BEO, Burger House → Burger House Bros.
+
 ## 2026-10-17: korak 1a završen (uparivanje URL-ova)
 - `skripte/02_upari_url.py` → `podaci/restorani_89.csv`: **89/89 upareno**, 89 jedinstvenih TA ID-jeva, nijedan `NOT_FOUND`.
 - Izvori (besplatno): TA lista Beograda sa Wayback-a iz 2018 (snimci 31.1., 24.7., 26.7.2018 i 21.1.2019; rangovi 1–120), Wayback CDX spisak 785 arhiviranih stranica restorana u Beogradu, pretraga weba za 5 restorana kojih nema u arhivi (Salaš 034, Žabar, Careva Ćuprija, MYDAN, Cantina de Frida).

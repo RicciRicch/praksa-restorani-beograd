@@ -51,10 +51,32 @@ od ranga koji je prikazivao TripAdvisor?
 | `rank_now` | pozicija na beogradskoj listi, ako je prikazana |
 | `price_range`, `cuisine` | kako su prikazani (kontrolne varijable) |
 | `date_checked` | datum provere |
+| `rank_list` | *(dodato)* na kojoj TA listi je rang (Zemun i „Bars & Pubs“ imaju svoje liste) |
+| `status_note` | *(dodato)* izvor statusa za restorane koje Apify nije vratio |
 
 Zatvorene i nenađene **proveriti ručno** (TA ih nekad označi „Closed“, a nekad obriše stranicu).
 
+✅ **Urađeno 18. 10. 2026** (`skripte/03_trenutno_stanje.py`, Apify run `lHqGf8kfgYLCmKlPS`, ≈ $0.38):
+- Apify vratio 74 od 89 (14 stranica nije uspeo da učita, Znak Pitanja vraćen kao Kafana Question Mark).
+- **open 71 · closed 11 · not_found 7**
+  - zatvoreni po Apify-ju (3): Little Bay, Bistro Grad, Terminal Gastro Bar;
+  - zatvoreni po ručnoj proveri (8): Podrum Wine Art, OMB Larder + Lounge, Red Bread, Mala Gostionica, Burrito Madre (Karađorđeva), Tribeca, Via del Gusto, Žabar;
+  - ostaje za proveru u pregledaču (7): Salaš 034, Mala Fabrika Ukusa, Splav Kota 70, Gnezdo Organic, Znak Pitanja (verovatno spojen sa Kafana Question Mark), Supermarket, Vapiano.
+- Ručna provera sa izvorom za svaki restoran: `podaci/izvor/provera_1b_rucno.csv`.
+- Obrazac: Apify uglavnom **ne uspeva da učita stranice zatvorenih restorana** → rizik za korak 2 (vidi dole).
+- Preimenovani, isti TA ID: Hotel Moskva Restaurant → Restaurant Tchaikovsky, Salon 5 → Salon 5a (sada Zemun), Walter → Walter – TC BEO, Burger House → Burger House Bros.
+
 **1c. Procena troška koraka 2** = Σ `n_reviews_now` × cena po recenziji → poslati mentoru.
+
+✅ Σ `n_reviews_now` = **41.256** recenzija (74 restorana sa brojem) + procena ≈ 3.500–4.000 za zatvorene/nenađene (iz pretrage weba) → **≈ 45.000 recenzija**:
+
+| Apify cena po recenziji | Procena |
+|---|---|
+| FREE plan, $0.005 | ≈ $225 |
+| plaćeni plan (BRONZE), $0.0019 | ≈ $85 (+ mesečna pretplata plana) |
+| SILVER, $0.0015 | ≈ $68 |
+
+⚠️ **Rizik:** ako aktor za recenzije, kao i aktor za spisak, ne može da učita stranice zatvorenih restorana, njihova istorija recenzija nedostaje. To je pristrasnost preživljavanja → proba u koraku 2 mora da uključi bar jedan restoran koji Apify nije vratio (npr. Mala Gostionica) i jedan zatvoren koji jeste (Little Bay).
 
 ## Korak 2: sve recenzije (posle mentorovog odobrenja i uplate)
 Apify `maxcopell/tripadvisor-reviews`. Podešavanja (najčešće mesto greške):
@@ -68,6 +90,8 @@ Apify `maxcopell/tripadvisor-reviews`. Podešavanja (najčešće mesto greške):
 | `lastReviewDate` | ne postavljati | ne sme da preseče istoriju |
 
 Prvo **proba na 2–3 restorana** (najjeftinija provera podešavanja), pa tek onda svih 89.
+Predlog probe: jedan otvoren sa mnogo recenzija na srpskom (npr. Ambar), Little Bay (zatvoren, Apify ga vratio)
+i Mala Gostionica (zatvoren, Apify ga nije vratio).
 Sirov JSON se čuva **kakav jeste** (`podaci/raw/`), CSV se pravi iz njega.
 
 **`podaci/recenzije_89.csv`**

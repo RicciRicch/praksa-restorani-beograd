@@ -13,4 +13,9 @@ Obavezna podešavanja za recenzije (vidi `PLAN.md`, korak 2):
 `maxItemsPerQuery: 1000000`, `reviewsLanguages: ["ALL_REVIEW_LANGUAGES"]`,
 `disableMachineTranslations: true`, `scrapeReviewerInfo: true`, bez `lastReviewDate`.
 
+## Pokretanja
+| Datum | Unos | Run ID | Dataset | Rezultat | Cena |
+|---|---|---|---|---|---|
+| 2026-10-18 | `02_trenutno_stanje_89.json` | `lHqGf8kfgYLCmKlPS` | `fD0hruEEb3J6hOWWg` | 75 stavki (74 jedinstvene), 14 neuspelih stranica | ≈ $0.38 |
+
 Posle svakog pokretanja zapisati u `DNEVNIK.md`: datum, ID pokretanja (run ID), broj rezultata, cenu.
