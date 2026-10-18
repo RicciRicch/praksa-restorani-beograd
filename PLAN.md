@@ -58,25 +58,25 @@ Zatvorene i nenađene **proveriti ručno** (TA ih nekad označi „Closed“, a 
 
 ✅ **Urađeno 18. 10. 2026** (`skripte/03_trenutno_stanje.py`, Apify run `lHqGf8kfgYLCmKlPS`, ≈ $0.38):
 - Apify vratio 74 od 89 (14 stranica nije uspeo da učita, Znak Pitanja vraćen kao Kafana Question Mark).
-- **open 71 · closed 11 · not_found 7**
-  - zatvoreni po Apify-ju (3): Little Bay, Bistro Grad, Terminal Gastro Bar;
-  - zatvoreni po ručnoj proveri (8): Podrum Wine Art, OMB Larder + Lounge, Red Bread, Mala Gostionica, Burrito Madre (Karađorđeva), Tribeca, Via del Gusto, Žabar;
-  - ostaje za proveru u pregledaču (7): Salaš 034, Mala Fabrika Ukusa, Splav Kota 70, Gnezdo Organic, Znak Pitanja (verovatno spojen sa Kafana Question Mark), Supermarket, Vapiano.
-- Ručna provera sa izvorom za svaki restoran: `podaci/izvor/provera_1b_rucno.csv`.
-- Obrazac: Apify uglavnom **ne uspeva da učita stranice zatvorenih restorana** → rizik za korak 2 (vidi dole).
+- Ručna provera u pregledaču (18. 10.) za svih 15: `podaci/izvor/provera_1b_rucno.csv`. Kontrole: Casa Nova (otvoren) i Little Bay (zatvoren) se normalno otvaraju.
+- **open 72 · closed 3 · not_found 14**
+  - **closed (3)**, TA stranica postoji, označena kao zatvorena: Little Bay, Bistro Grad, Terminal Gastro Bar;
+  - **not_found (14)**, TA je **obrisao stranicu** (URL preusmerava na listu restorana Beograda/Zemuna): Salaš 034, Podrum Wine Art, Žabar, OMB Larder + Lounge, Mala Fabrika Ukusa, Red Bread, Splav Kota 70, Gnezdo Organic, Mala Gostionica, Burrito Madre (Karađorđeva), Tribeca, Via del Gusto, Supermarket, Vapiano. Za većinu keširani snimci u pretrazi weba pokazuju „CLOSED“ pre brisanja;
+  - **Znak Pitanja** → TA je spojio unos sa Kafana Question Mark (d3411420) → `open`, bez sopstvenih brojeva (ne brojati dvaput).
+- Ukupno **17 od 89 (19%) restorana više ne radi** po TripAdvisoru (3 closed + 14 obrisanih).
 - Preimenovani, isti TA ID: Hotel Moskva Restaurant → Restaurant Tchaikovsky, Salon 5 → Salon 5a (sada Zemun), Walter → Walter – TC BEO, Burger House → Burger House Bros.
 
 **1c. Procena troška koraka 2** = Σ `n_reviews_now` × cena po recenziji → poslati mentoru.
 
-✅ Σ `n_reviews_now` = **41.256** recenzija (74 restorana sa brojem) + procena ≈ 3.500–4.000 za zatvorene/nenađene (iz pretrage weba) → **≈ 45.000 recenzija**:
+✅ Σ `n_reviews_now` = **41.256** recenzija za 74 restorana čije stranice postoje (72 otvorena + 3 zatvorena; Znak Pitanja je u Kafana Question Mark):
 
 | Apify cena po recenziji | Procena |
 |---|---|
-| FREE plan, $0.005 | ≈ $225 |
-| plaćeni plan (BRONZE), $0.0019 | ≈ $85 (+ mesečna pretplata plana) |
-| SILVER, $0.0015 | ≈ $68 |
+| FREE plan, $0.005 | ≈ $206 |
+| plaćeni plan (BRONZE), $0.0019 | ≈ $78 (+ mesečna pretplata plana) |
+| SILVER, $0.0015 | ≈ $62 |
 
-⚠️ **Rizik:** ako aktor za recenzije, kao i aktor za spisak, ne može da učita stranice zatvorenih restorana, njihova istorija recenzija nedostaje. To je pristrasnost preživljavanja → proba u koraku 2 mora da uključi bar jedan restoran koji Apify nije vratio (npr. Mala Gostionica) i jedan zatvoren koji jeste (Little Bay).
+⚠️ **Rizik za korak 2 (javiti mentoru):** za **14 obrisanih stranica** TripAdvisor više ne prikazuje recenzije, pa ih Apify ne može skinuti. Upravo zatvoreni restorani bi tako ostali bez istorije recenzija (pristrasnost preživljavanja u „trening“ delu). Moguće dopune: Wayback snimci stranica sa recenzijama (delimično), ili tretirati ih samo kroz ishod „zatvaranje“. Proba u koraku 2 treba da uključi bar jedan zatvoren restoran čija stranica postoji (Little Bay), da se vidi da li se njegove recenzije skidaju.
 
 ## Korak 2: sve recenzije (posle mentorovog odobrenja i uplate)
 Apify `maxcopell/tripadvisor-reviews`. Podešavanja (najčešće mesto greške):
@@ -90,8 +90,7 @@ Apify `maxcopell/tripadvisor-reviews`. Podešavanja (najčešće mesto greške):
 | `lastReviewDate` | ne postavljati | ne sme da preseče istoriju |
 
 Prvo **proba na 2–3 restorana** (najjeftinija provera podešavanja), pa tek onda svih 89.
-Predlog probe: jedan otvoren sa mnogo recenzija na srpskom (npr. Ambar), Little Bay (zatvoren, Apify ga vratio)
-i Mala Gostionica (zatvoren, Apify ga nije vratio).
+Predlog probe: jedan otvoren sa mnogo recenzija na srpskom (npr. Ambar) i Little Bay (zatvoren, stranica postoji).
 Sirov JSON se čuva **kakav jeste** (`podaci/raw/`), CSV se pravi iz njega.
 
 **`podaci/recenzije_89.csv`**

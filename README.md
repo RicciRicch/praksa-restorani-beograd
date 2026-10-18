@@ -13,8 +13,8 @@ a proverava na recenzijama od 2019. do 2026.
 |---|---|
 | Spisak 89 restorana iz rada (2019) | ✅ `podaci/izvor/ristanovic_2019_tabela.csv` |
 | 1a. Uparivanje sa TA URL-ovima → `podaci/restorani_89.csv` | ✅ 89/89 |
-| 1b. Trenutno stanje (Apify, ≈ $0.38) | ✅ open 71 · closed 11 · not_found 7 (čeka proveru u pregledaču) |
-| 1c. Procena troška koraka 2 → mentor | ✅ ≈ 45.000 recenzija → ≈ $85 (BRONZE) / $225 (FREE); ⏳ slanje mentoru |
+| 1b. Trenutno stanje (Apify, ≈ $0.38) | ✅ open 72 · closed 3 · not_found 14 (TA obrisao stranicu; provereno u pregledaču) |
+| 1c. Procena troška koraka 2 → mentor | ✅ ≈ 41.000 recenzija → ≈ $78 (BRONZE) / $206 (FREE); ⏳ slanje mentoru |
 | 2. Sve recenzije → `podaci/recenzije_89.csv` | čeka odobrenje |
 
 ## Struktura

@@ -3,6 +3,14 @@
 Hronološki zapis odluka i koraka. Aktuelni plan: [`PLAN.md`](PLAN.md).
 Odbačeni planovi i skripte ostaju u istoriji gita (`git log`).
 
+## 2026-10-18: provera 15 restorana u pregledaču (ispravka 1b)
+- Svih 15 restorana koje Apify nije vratio otvoreno u pregledaču; kontrole Casa Nova (otvoren) i Little Bay (zatvoren) se otvaraju normalno.
+- **14 TA stranica je obrisano** (URL preusmerava na listu restorana Beograda/Zemuna) → `not_found`. Među njima je i 8 restorana koje je pretraga weba prethodno pokazivala kao „CLOSED“; to su bili keširani snimci pre brisanja.
+- **Znak Pitanja** preusmerava na Kafana Question Mark (d3411420) → TA je spojio unose; vodi se kao `open` bez sopstvenih brojeva.
+- Konačno: **open 72 · closed 3 · not_found 14**; 17/89 (19%) restorana više ne radi po TA.
+- Procena koraka 2 ispravljena na ≈ 41.000 recenzija (≈ $78 BRONZE / $206 FREE), jer recenzije obrisanih stranica nisu dostupne.
+- ⚠️ Za mentora: zatvoreni restorani sa obrisanim stranicama ostaju bez istorije recenzija → rizik pristrasnosti preživljavanja.
+
 ## 2026-10-18: korak 1b završen (trenutno stanje) i procena troška
 - Apify `maxcopell/tripadvisor` za 89 URL-ova (run `lHqGf8kfgYLCmKlPS`, dataset `fD0hruEEb3J6hOWWg`, ≈ $0.38): 75 stavki, 14 stranica neuspelo, Znak Pitanja (d8427347) vraćen kao Kafana Question Mark (d3411420) → TA je verovatno spojio unose.
 - Potrebna polja sačuvana u `podaci/raw/trenutno_stanje_89.json` (van gita; pun izvoz dataseta može da zameni fajl, skripta radi isto).
