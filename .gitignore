@@ -5,6 +5,9 @@ materijali/
 podaci/raw/*
 !podaci/raw/.gitkeep
 
+# Tabele recenzija: lični podaci recenzenata (ID, korisničko ime) i tekstovi → šalju se mentoru direktno, ne idu u git
+podaci/recenzije_*.csv
+
 # Python
 __pycache__/
 *.pyc
