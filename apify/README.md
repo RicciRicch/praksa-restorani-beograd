@@ -6,8 +6,11 @@ Unosi sa listom URL-ova prave se skriptom iz `podaci/restorani_89.csv` (posle ko
 | Fajl | Aktor | Izlaz (`podaci/raw/`) | Korak |
 |---|---|---|---|
 | `02_trenutno_stanje_89.json` | `maxcopell/tripadvisor` | `trenutno_stanje_89.json` | 1b, 89 URL-ova, ≈ $0.50 (pravi ga `skripte/02_upari_url.py`) |
-| `03_recenzije_proba.json` | `maxcopell/tripadvisor-reviews` | `recenzije_proba.json` | 2, proba na 2–3 restorana |
-| `04_recenzije_89.json` | `maxcopell/tripadvisor-reviews` | `recenzije_89.json` | 2, svih 89 (posle odobrenja) |
+| `03a_recenzije_proba.json` | `maxcopell/tripadvisor-reviews` | `recenzije_proba.json` | 2, proba: ABC Restoran + Burger House Bros, cela istorija (≈ 126 rec., ≈ $0.63 FREE) |
+| `03b_recenzije_proba_zatvoren.json` | `maxcopell/tripadvisor-reviews` | `recenzije_proba_zatvoren.json` | 2, proba: Little Bay (zatvoren), 20 rec. (≈ $0.10 FREE) |
+| `04_recenzije_89.json` | `maxcopell/tripadvisor-reviews` | `recenzije_89.json` | 2, 74 restorana sa stranicom, ≈ 41.256 rec. (≈ $78 BRONZE; posle odobrenja) |
+
+Unose 03a, 03b i 04 pravi `skripte/04_apify_unos_recenzije.py`.
 
 Obavezna podešavanja za recenzije (vidi `PLAN.md`, korak 2):
 `maxItemsPerQuery: 1000000`, `reviewsLanguages: ["ALL_REVIEW_LANGUAGES"]`,

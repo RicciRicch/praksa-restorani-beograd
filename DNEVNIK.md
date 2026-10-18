@@ -3,6 +3,12 @@
 Hronološki zapis odluka i koraka. Aktuelni plan: [`PLAN.md`](PLAN.md).
 Odbačeni planovi i skripte ostaju u istoriji gita (`git log`).
 
+## 2026-10-18: priprema koraka 2 (dok se čeka mentor)
+- `skripte/04_apify_unos_recenzije.py` → Apify unosi: proba A (ABC Restoran + Burger House Bros, cela istorija, ≈ 126 rec.), proba B (Little Bay, zatvoren, 20 rec.), puna obrada (74 restorana, ≈ 41.256 rec.).
+- Prvobitni predlog probe (Ambar + Little Bay) odbačen: ≈ 3.400 recenzija ≈ $6.5–17. Nova proba ≈ $0.73 → staje u besplatni kredit.
+- `skripte/05_recenzije_csv.py` (sirov JSON → `recenzije_89.csv`) i `skripte/06_provere_recenzija.py` (5 provera iz uputstva → `provera_recenzija.md`), testirane na izmišljenim podacima; test je otkrio da se 0 doprinosa upisivalo kao prazno → ispravljeno.
+- `podaci/recenzije_*.csv` dodat u `.gitignore` (lični podaci recenzenata).
+
 ## 2026-10-18: provera 15 restorana u pregledaču (ispravka 1b)
 - Svih 15 restorana koje Apify nije vratio otvoreno u pregledaču; kontrole Casa Nova (otvoren) i Little Bay (zatvoren) se otvaraju normalno.
 - **14 TA stranica je obrisano** (URL preusmerava na listu restorana Beograda/Zemuna) → `not_found`. Među njima je i 8 restorana koje je pretraga weba prethodno pokazivala kao „CLOSED“; to su bili keširani snimci pre brisanja.

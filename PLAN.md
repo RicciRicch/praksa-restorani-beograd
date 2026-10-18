@@ -89,9 +89,22 @@ Apify `maxcopell/tripadvisor-reviews`. Podešavanja (najčešće mesto greške):
 | `scrapeReviewerInfo` | `true` | ID i broj doprinosa recenzenta (lični podaci → sirovi JSON ne ide u git) |
 | `lastReviewDate` | ne postavljati | ne sme da preseče istoriju |
 
-Prvo **proba na 2–3 restorana** (najjeftinija provera podešavanja), pa tek onda svih 89.
-Predlog probe: jedan otvoren sa mnogo recenzija na srpskom (npr. Ambar) i Little Bay (zatvoren, stranica postoji).
+Prvo **proba** (najjeftinija provera podešavanja), pa tek onda svih 74 restorana čije stranice postoje.
 Sirov JSON se čuva **kakav jeste** (`podaci/raw/`), CSV se pravi iz njega.
+
+✅ **Pripremljeno 18. 10. 2026** (sve spremno za pokretanje):
+| korak | unos / skripta | šta | trošak |
+|---|---|---|---|
+| proba A | `apify/03a_recenzije_proba.json` | ABC Restoran + Burger House Bros, **cela istorija** (≈ 126 recenzija) → potpunost, jezici, najstariji datum, polja | ≈ $0.63 (FREE) |
+| proba B | `apify/03b_recenzije_proba_zatvoren.json` | Little Bay (zatvoren), **20 recenzija** → da li se recenzije zatvorenih skidaju | ≈ $0.10 (FREE) |
+| puna obrada | `apify/04_recenzije_89.json` | 74 restorana, ≈ 41.256 recenzija | ≈ $78 (BRONZE) |
+| CSV | `skripte/05_recenzije_csv.py` | sirov JSON → `podaci/recenzije_89.csv` (kolone iz tabele ispod; duplikati i recenzije van kohorte izbačeni) | – |
+| provere | `skripte/06_provere_recenzija.py` | 5 provera iz uputstva → `podaci/provera_recenzija.md` | – |
+
+Unose pravi `skripte/04_apify_unos_recenzije.py` iz `restorani_89.csv` (bez 14 obrisanih stranica i spojenog Znaka Pitanja).
+Probe staju u besplatni Apify kredit → mogu i pre mentorove uplate.
+Skripte 05 i 06 testirane na izmišljenim podacima u formatu aktora (duplikat, recenzija van kohorte, nepotpun restoran, tekst sa zarezima/navodnicima/novim redovima).
+`podaci/recenzije_*.csv` nisu u gitu (lični podaci recenzenata), šalju se mentoru direktno.
 
 **`podaci/recenzije_89.csv`**
 
