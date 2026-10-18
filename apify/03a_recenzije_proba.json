@@ -1,0 +1,19 @@
+{
+  "startUrls": [
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d810065-Reviews-ABC_Restoran-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d4458196-Reviews-Burger_House-Belgrade.html"
+    }
+  ],
+  "maxItemsPerQuery": 1000000,
+  "reviewsLanguages": [
+    "ALL_REVIEW_LANGUAGES"
+  ],
+  "reviewRatings": [
+    "ALL_REVIEW_RATINGS"
+  ],
+  "disableMachineTranslations": true,
+  "scrapeReviewerInfo": true
+}

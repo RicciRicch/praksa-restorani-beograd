@@ -1,0 +1,235 @@
+{
+  "startUrls": [
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d8447925-Reviews-Cevap_kod_Dekija-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d7916842-Reviews-Bar_Central-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d9874369-Reviews-Drama_Cevapi-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d6528774-Reviews-Blaznavac_cafe_bar-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d7751477-Reviews-Trattoria_Pepe-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d810065-Reviews-ABC_Restoran-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d6219116-Reviews-Salon_5-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d2420016-Reviews-Casa_Nova-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d6826353-Reviews-Mezestoran_Dvoriste-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d2632034-Reviews-Careva_Cuprija-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d7353054-Reviews-Campania_Trattoria-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d2518754-Reviews-The_Square-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d2440923-Reviews-New_Reset-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d3836805-Reviews-Radost_Fina_Kuhinjica-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g1898555-d9999225-Reviews-Restoran_Ciribu_Ciriba-Zemun_Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d7225456-Reviews-CEGER_kafe_restoran-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d4422148-Reviews-Toro_Latin_Gastrobar-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d10218932-Reviews-Salon_1905-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d802194-Reviews-Frans-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d3646746-Reviews-To_Je_To-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d3202918-Reviews-Zavicaj_Restaurant-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d4261679-Reviews-Restoran_Durmitor-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d811225-Reviews-Na_Cosku-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d6954644-Reviews-Gradska-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g1898555-d1097824-Reviews-Saran-Zemun_Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d4171028-Reviews-Tezga_Bar_Restaurant-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d1159647-Reviews-Little_Bay-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d8178411-Reviews-Ambar-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d2371635-Reviews-Homa_Restaurant-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d3512710-Reviews-Opera-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d2704010-Reviews-Comunale_Caffe_e_Cucina-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d6826390-Reviews-Sofa_Lounge_bar-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d806160-Reviews-Kovac-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d1090332-Reviews-Amici_Pizzeria-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d1227526-Reviews-Reka-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d2287452-Reviews-Lorenzo_Kakalamba-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d3752914-Reviews-Voulez_Vous_Cafe_Restaurant-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d2703642-Reviews-Stara_Koliba-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d946241-Reviews-Botako-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d2288928-Reviews-Villa_Maska-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d6833594-Reviews-Sakura-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d6218104-Reviews-Restaurant_Mikan-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d6615909-Reviews-Go_Sushi-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d8843594-Reviews-Enso-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d2371949-Reviews-MOON_Sushi_Fusion_Food-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d815101-Reviews-Madera-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d896798-Reviews-Klub_knjizevnika-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d5264327-Reviews-Jazz_Basta-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d1094844-Reviews-Stara_Hercegovina-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d1013625-Reviews-Hotel_Moskva_Restaurant-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d969609-Reviews-Prolece-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d12321624-Reviews-Bistro_Grad_Hometown_Food-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d3588640-Reviews-Smokvica-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d3205129-Reviews-Toro_Grill-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d7260235-Reviews-Druga_Piazza-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d3332825-Reviews-Restoran_Lovac-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d5867697-Reviews-Smokvica_Molerova-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d3576206-Reviews-Pizza_Bar-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d7939728-Reviews-Terminal_GastroBar-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d7112940-Reviews-Burrito_Madre-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d4830077-Reviews-Walter_Sarajevski_Cevap-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d2336443-Reviews-MYDAN-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d837461-Reviews-Kalemegdanska_terasa-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d4132229-Reviews-Supermarket_Deli-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d2363543-Reviews-Cantina_De_Frida-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d1014372-Reviews-Vuk-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d2615514-Reviews-Sesir_moj_Skadarlija-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d4458196-Reviews-Burger_House-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d1860458-Reviews-Tri_Sesira-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d1791901-Reviews-Dva_Jelena-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d3411420-Reviews-Kafana_Question_Mark-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d8796919-Reviews-Marukoshi_Restaurant_and_Bar-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d6673520-Reviews-Boutique_Cafe_Restaurant-Belgrade.html"
+    },
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d12568624-Reviews-Jazz_Cafe-Belgrade.html"
+    }
+  ],
+  "maxItemsPerQuery": 1000000,
+  "reviewsLanguages": [
+    "ALL_REVIEW_LANGUAGES"
+  ],
+  "reviewRatings": [
+    "ALL_REVIEW_RATINGS"
+  ],
+  "disableMachineTranslations": true,
+  "scrapeReviewerInfo": true
+}

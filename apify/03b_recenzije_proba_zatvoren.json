@@ -1,0 +1,16 @@
+{
+  "startUrls": [
+    {
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g294472-d1159647-Reviews-Little_Bay-Belgrade.html"
+    }
+  ],
+  "maxItemsPerQuery": 20,
+  "reviewsLanguages": [
+    "ALL_REVIEW_LANGUAGES"
+  ],
+  "reviewRatings": [
+    "ALL_REVIEW_RATINGS"
+  ],
+  "disableMachineTranslations": true,
+  "scrapeReviewerInfo": true
+}
