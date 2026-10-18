@@ -3,6 +3,13 @@
 Hronološki zapis odluka i koraka. Aktuelni plan: [`PLAN.md`](PLAN.md).
 Odbačeni planovi i skripte ostaju u istoriji gita (`git log`).
 
+## 2026-10-18: proba koraka 2 (besplatni kredit, ≈ $0.73)
+- Proba A (run `TkevWdelMVCgm8JzB`): ABC Restoran 74/74 recenzija, najstarija 2008; do 31. 7. 2018 ima 64 prema Ristanovićevih 66 (97%) → rekonstrukcija stanja 2018 radi.
+- Proba A: **Burger House Bros 52/52, ali najstarija iz 2021**; Ristanović je 2018 imao 214 → TA je izgubio/resetovao staru istoriju (restoran preimenovan). Mentorove provere 1–4 to ne hvataju → dodata **provera 6** (do 31. 7. 2018 vs. Ristanović, prag 80%).
+- Proba B (run `2KWnJ6MGRYhSM8Rp4`): Little Bay (zatvoren) 20/20 → recenzije zatvorenih restorana čija stranica postoji se skidaju.
+- Svi jezici stižu (28% neengleskih), nema mašinskog prevoda, broj doprinosa recenzenta popunjen, nema duplikata.
+- Polja sačuvana u `podaci/raw/recenzije_proba*.json` (bez naslova, teksta i korisničkog imena; pun sirov JSON može da se izveze iz Apify konzole). CSV `podaci/recenzije_proba.csv` (van gita), izveštaj `podaci/provera_recenzija_proba.md`.
+
 ## 2026-10-18: priprema koraka 2 (dok se čeka mentor)
 - `skripte/04_apify_unos_recenzije.py` → Apify unosi: proba A (ABC Restoran + Burger House Bros, cela istorija, ≈ 126 rec.), proba B (Little Bay, zatvoren, 20 rec.), puna obrada (74 restorana, ≈ 41.256 rec.).
 - Prvobitni predlog probe (Ambar + Little Bay) odbačen: ≈ 3.400 recenzija ≈ $6.5–17. Nova proba ≈ $0.73 → staje u besplatni kredit.

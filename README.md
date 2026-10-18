@@ -15,7 +15,7 @@ a proverava na recenzijama od 2019. do 2026.
 | 1a. Uparivanje sa TA URL-ovima → `podaci/restorani_89.csv` | ✅ 89/89 |
 | 1b. Trenutno stanje (Apify, ≈ $0.38) | ✅ open 72 · closed 3 · not_found 14 (TA obrisao stranicu; provereno u pregledaču) |
 | 1c. Procena troška koraka 2 → mentor | ✅ ≈ 41.000 recenzija → ≈ $78 (BRONZE) / $206 (FREE); ⏳ slanje mentoru |
-| 2. Sve recenzije → `podaci/recenzije_89.csv` | 🛠️ unosi i skripte spremni; proba (≈ $0.73, besplatni kredit) može odmah; puna obrada čeka odobrenje |
+| 2. Sve recenzije → `podaci/recenzije_89.csv` | ✅ proba urađena (podešavanja rade; nalaz: Burger House bez istorije pre 2021) · ⏳ puna obrada čeka odobrenje |
 
 ## Struktura
 | Putanja | Sadržaj | U gitu |

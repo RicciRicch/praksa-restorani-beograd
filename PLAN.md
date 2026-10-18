@@ -106,6 +106,16 @@ Probe staju u besplatni Apify kredit → mogu i pre mentorove uplate.
 Skripte 05 i 06 testirane na izmišljenim podacima u formatu aktora (duplikat, recenzija van kohorte, nepotpun restoran, tekst sa zarezima/navodnicima/novim redovima).
 `podaci/recenzije_*.csv` nisu u gitu (lični podaci recenzenata), šalju se mentoru direktno.
 
+✅ **Proba urađena 18. 10. 2026** (≈ $0.73, besplatni kredit; izveštaj: `podaci/provera_recenzija_proba.md`):
+| restoran | skinuto / TA danas | najstariji | do 31. 7. 2018 / Ristanović 2018 | zaključak |
+|---|---|---|---|---|
+| ABC Restoran | 74 / 74 | 2008-03-17 | 64 / 66 (97%) | ✅ istorija potpuna, rekonstrukcija 2018 radi |
+| Burger House Bros | 52 / 52 | 2021-01-22 | 0 / 214 (0%) | ⚠️ TA je izgubio/resetovao istoriju pre 2021 (restoran preimenovan) |
+| Little Bay (zatvoren) | 20 / 20 (limit) | – | – | ✅ recenzije zatvorenog restorana se skidaju |
+
+- Podešavanja rade: **svi jezici** stižu (28% neengleskih: sr, de, it, tr, ru, no, el, pt…), `isMachineTranslated = false`, `user.contributions.totalContributions` popunjen, nema duplikata.
+- **Nova provera 6** u `06_provere_recenzija.py`: broj recenzija do 31. 7. 2018 vs. `brojSvihRecenz` iz Ristanovićeve tabele (prag 80%) → hvata restorane kao Burger House, kojima TA više ne prikazuje staru istoriju; mentorove provere 1–4 to ne bi uhvatile (52/52 = 100% potpuno).
+
 **`podaci/recenzije_89.csv`**
 
 | kolona | izvor u Apify izlazu |
