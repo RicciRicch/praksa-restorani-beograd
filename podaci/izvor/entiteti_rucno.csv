@@ -1,0 +1,10 @@
+id_2018,name_2018,entity_id,entity_note
+56,Znak_Pitanja,84,"spojen: TA unos d8427347 preusmerava na Kafana Question Mark (d3411420); ista kafana „?“ → u analizi jedan lokal (entity_id 84)"
+84,Kafana_Question_Mark,84,"spojen: TA je pripojio unos Znak Pitanja (d8427347) ovom unosu; ista kafana „?“"
+60,Hotel_Moskva_Restaurant,60,"preimenovan: danas „Restaurant Tchaikovsky“ (isti TA ID); proveriti adresu 2018 vs. danas — isti lokal u hotelu Moskva ili novi koncept"
+73,Walter_Sarajevski_Cevap,73,"preimenovan: danas „Walter - TC BEO“ (isti TA ID); moguće preseljenje u tržni centar → proveriti adresu 2018 vs. danas"
+81,Burger_House,81,"preimenovan: danas „Burger House Bros“ (isti TA ID); TA ne prikazuje recenzije pre 2021 (rad 2018: 214) → moguće novi lokal pod starim unosom"
+10,Salon_5,10,"preimenovan: danas „Salon 5a“, rangiran na listi Zemuna (2018: Beograd) → moguće preseljenje; proveriti adresu 2018 vs. danas"
+38,Soga_Lounge_Bar,38,"preimenovan: „Sofa Lounge bar“ (2018) → „Sofa Restaurant and bar“; u radu greška u kucanju „Soga“"
+15,Campania_Trattoria,15,"naziv dopunjen: „Trattoria Campania - Saporito d.o.o.“"
+40,Amici_Pizzeria,40,"naziv dopunjen: „Amici Restoran Pizzeria Trattoria“"
