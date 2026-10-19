@@ -23,9 +23,10 @@ Kolone izlaza:
   wb_note                   napomena (nema snimka, delimično parsirano…)
 
 Pokretanje (iz korena repoa; traje dugo zbog sporog Wayback-a, keš omogućava nastavak):
-  python -u skripte/07_wayback_2018.py
+  python -u skripte/07_wayback_2018.py                         # prozor ±12 meseci (podrazumevano)
+  python -u skripte/07_wayback_2018.py --od 20160101 --do 20201231   # širi prozor za restorane bez snimka
 """
-import csv, datetime as dt, gzip, re, time, urllib.request
+import argparse, csv, datetime as dt, gzip, re, time, urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -66,12 +67,31 @@ def preuzmi(url, putanja=None, pokusaji=4):
     return None
 
 
-def snimci(d):
-    """Svi uspešni snimci glavne stranice restorana (ne -orNN strane) u prozoru, sa svih domena i geo-a."""
+def iz_uzeg_kesa(d):
+    """Snimci iz keša podrazumevanog prozora (±12 meseci); širi prozor ne može dati bliži snimak."""
     nadjeno = []
     for domen in DOMENI:
         for g in GEO:
-            kes = KES / f"cdx_{domen}_{g}_d{d}.txt"
+            f = KES / f"cdx_{domen}_{g}_d{d}.txt"
+            if f.exists():
+                for linija in f.read_text(encoding="utf-8", errors="replace").splitlines():
+                    deo = linija.split(" ", 1)
+                    if len(deo) == 2 and deo[0].isdigit() and "-Reviews-or" not in deo[1]:
+                        nadjeno.append((deo[0], deo[1]))
+    return nadjeno
+
+
+def snimci(d):
+    """Svi uspešni snimci glavne stranice restorana (ne -orNN strane) u prozoru, sa svih domena i geo-a."""
+    if (OD, DO) != ("20170731", "20190731"):
+        uzi = iz_uzeg_kesa(d)
+        if uzi:
+            return uzi
+    nadjeno = []
+    for domen in DOMENI:
+        for g in GEO:
+            kes = KES / (f"cdx_{domen}_{g}_d{d}.txt" if (OD, DO) == ("20170731", "20190731")
+                         else f"cdx_{OD}_{DO}_{domen}_{g}_d{d}.txt")
             url = (f"http://web.archive.org/cdx/search/cdx?url={domen}/Restaurant_Review-{g}-d{d}-"
                    f"&matchType=prefix&from={OD}&to={DO}&fl=timestamp,original&filter=statuscode:200")
             txt = preuzmi(url, kes)
@@ -125,6 +145,12 @@ def parsiraj(h):
 
 
 def main():
+    global OD, DO
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--od", default=OD, help="početak prozora (YYYYMMDD)")
+    ap.add_argument("--do", dest="do_", default=DO, help="kraj prozora (YYYYMMDD)")
+    a = ap.parse_args()
+    OD, DO = a.od, a.do_
     KES.mkdir(parents=True, exist_ok=True)
     restorani = list(csv.DictReader(RESTORANI.open(encoding="utf-8")))
     rad = {r["KONACNI RANG"]: r["brojSvihRecenz"] for r in csv.DictReader(RISTANOVIC.open(encoding="utf-8"))}
@@ -136,7 +162,7 @@ def main():
                "rad_n_reviews_2018": rad.get(x["id_2018"], "")}
         sn = snimci(d)
         if not sn:
-            red["wb_note"] = "nema snimka u prozoru 31. 7. 2017 – 31. 7. 2019"
+            red["wb_note"] = f"nema snimka u prozoru {OD}–{DO}"
         else:
             ts, orig = min(sn, key=lambda s: dani(s[0]))
             red.update(wb_snapshot_ts=ts, wb_snapshot_url=f"https://web.archive.org/web/{ts}/{orig}",
@@ -146,8 +172,13 @@ def main():
                 red["wb_note"] = "snimak nije preuzet (Wayback greška)"
             else:
                 red.update(parsiraj(h))
-                fale = [k for k in ("wb_rating", "wb_n_reviews", "wb_pct_5", "wb_en_5") if red.get(k) in ("", None)]
-                red["wb_note"] = f"nije parsirano: {', '.join(fale)}" if fale else ""
+                fale = [k for k in ("wb_rating", "wb_n_reviews", "wb_en_5") if red.get(k) in ("", None)]
+                note = [f"nije parsirano: {', '.join(fale)}"] if fale else []
+                if red.get("wb_pct_5") in ("", None):
+                    note.append("raspodela u % nije prikazana na ovom izgledu stranice (samo brojevi za filter „English“)")
+                if dani(ts) > 365:
+                    note.append(f"snimak udaljen {dani(ts)} dana od 31. 7. 2018")
+                red["wb_note"] = "; ".join(note)
         izlaz.append(red)
         print(f"[{i}/{len(restorani)}] {x['name_2018'][:30]:30} {red.get('wb_snapshot_ts', '–'):14} "
               f"n={red.get('wb_n_reviews', '')} rad={red['rad_n_reviews_2018']} {red.get('wb_note', '')}")
