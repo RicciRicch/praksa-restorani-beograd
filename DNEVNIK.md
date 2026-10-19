@@ -3,6 +3,20 @@
 Hronološki zapis odluka i koraka. Aktuelni plan: [`PLAN.md`](PLAN.md).
 Odbačeni planovi i skripte ostaju u istoriji gita (`git log`).
 
+## 2026-10-19: korak 2 — puna obrada recenzija (kaix)
+- Mentoru javljeno: promena aktora, trošak ≈ $2, uplata nije potrebna.
+- Apify `kaix/tripadvisor-reviews-scraper` (run `XmrN7J2tzBl2igxmc`, dataset `5yQgI1vBDuoND5SDR`, unos `apify/04_recenzije_89_kaix.json`, ≈ 4 min, ≈ $2.06): **41.256 recenzija** za 74 restorana, sve sa jedinstvenim ID-jem.
+- Sirov JSON (kakav jeste, ugnežđen `author{...}`) u 9 delova: `podaci/raw/recenzije_89_kaix/deo_*.json` (≈ 80 MB, van gita).
+- `podaci/recenzije_89.csv` (van gita, lični podaci) + izveštaj `podaci/provera_recenzija.md`:
+  1. nepotpunih restorana (< 90% od `n_reviews_now`): **0** — svih 74 je 100%;
+  2. bez recenzija do 2018: **1** (Burger House);
+  3. duplikata: **0**;
+  4. recenzija do 31. 12. 2018: **73,9%** (30.482); nijedan restoran nema < 10;
+  5. 42,3% neengleskih (sr 4.458, it, tr, ru, de, fr, el…); prazan `reviewer_id` kod 62 recenzije;
+  6. ispod 80% Ristanovićevog broja do 31. 7. 2018: **1** (Burger House).
+- `history_complete_ratio` (mentorova definicija: do 31. 12. 2018 / rad 2018): medijan 1,05; > 1 je očekivano (rad je s kraja jula 2018); jedini < 0,9: Burger House (0). Za kafanu „?“ računato na nivou lokala (imenilac 609 + 107).
+- **Slojevi:** sloj 2 = 73 lokala (74 reda, Znak Pitanja deli red sa Kafana Question Mark); samo sloj 1 = 15 (14 obrisanih + Burger House).
+
 ## 2026-10-19: odgovor mentora, Wayback 2018, izbor aktora
 - Odgovor mentora sačuvan: `docs/odgovor_mentora_2026-10-19.md` (dva sloja, Wayback stanje 2018 za svih 89, `history_complete_ratio` ≥ 0,9 za drugi sloj, `entity_note`, 88 lokala, `closure_date_est`/`closure_source`, provera Filipovog aktora).
 - **Filipov aktor**: u radu (Prilog 2) navedeni su samo parametri (`locationIds`, `maxReviewsPerLocation`, `sinceDate`, `includeTranslated`, `includeLocationRow`), ne ime; nijedan javni aktor u Apify Store-u nema te parametre → verovatno iznajmljen/privatan.

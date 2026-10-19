@@ -79,7 +79,9 @@ Zatvorene i nenađene **proveriti ručno** (TA ih nekad označi „Closed“, a 
 ⚠️ **Rizik za korak 2 (javiti mentoru):** za **14 obrisanih stranica** TripAdvisor više ne prikazuje recenzije, pa ih Apify ne može skinuti. Upravo zatvoreni restorani bi tako ostali bez istorije recenzija (pristrasnost preživljavanja u „trening“ delu). Moguće dopune: Wayback snimci stranica sa recenzijama (delimično), ili tretirati ih samo kroz ishod „zatvaranje“. Proba u koraku 2 treba da uključi bar jedan zatvoren restoran čija stranica postoji (Little Bay), da se vidi da li se njegove recenzije skidaju.
 
 ## Korak 2: sve recenzije (posle mentorovog odobrenja i uplate)
-Apify `maxcopell/tripadvisor-reviews`. Podešavanja (najčešće mesto greške):
+> **Promena aktora (19. 10. 2026):** puna obrada ide preko **`kaix/tripadvisor-reviews-scraper`** (unos `apify/04_recenzije_89_kaix.json`: `maxReviews: 0` = sve, `language: "all"`, `sortBy: "recent"`), ≈ $2 umesto ≈ $78. Na probi daje iste recenzije kao maxcopell (vidi DNEVNIK); vraća i link profila recenzenta; ≈ 1% tekstova je mašinski prevedeno (`is_machine_translated`). Podešavanja ispod važe za maxcopell (proba i rezerva za restorane kojima bi nešto falilo).
+
+Apify `maxcopell/tripadvisor-reviews` (proba i rezerva). Podešavanja (najčešće mesto greške):
 
 | podešavanje | vrednost | zašto |
 |---|---|---|
@@ -97,7 +99,8 @@ Sirov JSON se čuva **kakav jeste** (`podaci/raw/`), CSV se pravi iz njega.
 |---|---|---|---|
 | proba A | `apify/03a_recenzije_proba.json` | ABC Restoran + Burger House Bros, **cela istorija** (≈ 126 recenzija) → potpunost, jezici, najstariji datum, polja | ≈ $0.63 (FREE) |
 | proba B | `apify/03b_recenzije_proba_zatvoren.json` | Little Bay (zatvoren), **20 recenzija** → da li se recenzije zatvorenih skidaju | ≈ $0.10 (FREE) |
-| puna obrada | `apify/04_recenzije_89.json` | 74 restorana, ≈ 41.256 recenzija | ≈ $78 (BRONZE) |
+| puna obrada | `apify/04_recenzije_89_kaix.json` (kaix) | 74 restorana, ≈ 41.256 recenzija | ≈ $2 (besplatni kredit) |
+| rezerva | `apify/04_recenzije_89.json` (maxcopell) | za restorane kojima bi kaix vratio nepotpuno | ≈ $0.005 / recenzija |
 | CSV | `skripte/05_recenzije_csv.py` | sirov JSON → `podaci/recenzije_89.csv` (kolone iz tabele ispod; duplikati i recenzije van kohorte izbačeni) | – |
 | provere | `skripte/06_provere_recenzija.py` | 5 provera iz uputstva → `podaci/provera_recenzija.md` | – |
 
@@ -118,7 +121,7 @@ Skripte 05 i 06 testirane na izmišljenim podacima u formatu aktora (duplikat, r
 
 **`podaci/recenzije_89.csv`**
 
-| kolona | izvor u Apify izlazu |
+| kolona | izvor u Apify izlazu (maxcopell; kaix: `author.*`, `publishedDateISO`, `isTranslated`) |
 |---|---|
 | `id_2018`, `tripadvisor_location_id` | iz `restorani_89.csv` / `locationId` |
 | `review_id` | `id` |

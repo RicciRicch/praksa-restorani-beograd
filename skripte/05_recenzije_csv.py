@@ -69,7 +69,7 @@ def red(x, id_2018):
         "review_helpful_votes": ili_prazno(x.get("helpfulVotes")),
         "language": x.get("originalLanguage") or x.get("lang") or "",
         "is_machine_translated": ili_prazno(prvo(x.get("isTranslated"), x.get("isMachineTranslated"))),
-        "trip_type": x.get("tripType") or "",
+        "trip_type": (x.get("tripType") or "").upper(),  # kaix: "Business", maxcopell: "BUSINESS"
         "title": x.get("title") or "",
         "text": x.get("text") or "",
     }

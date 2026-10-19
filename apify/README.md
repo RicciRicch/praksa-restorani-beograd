@@ -25,5 +25,6 @@ Obavezna podešavanja za recenzije (vidi `PLAN.md`, korak 2):
 | 2026-10-18 | `03b_recenzije_proba_zatvoren.json` | `2KWnJ6MGRYhSM8Rp4` | `xFCVefh1NbhFm3xcY` | 20 recenzija (Little Bay) | ≈ $0.10 |
 | 2026-10-19 | maxcopell, Bistro Grad + Terminal, `maxItemsPerQuery: 1` | `shtD0j40uliAFllLM` | `8c5N4Q50PflgRuxiU` | po 1 najnovija recenzija (datum zatvaranja) | ≈ $0.01 |
 | 2026-10-19 | kaix proba: ABC + Burger House + Little Bay, `maxReviews: 0`, `language: all`, `sortBy: recent` | `BLykezMZaZVq8GSND` | `K1pj4ifAe72ma3E4D` | 1.239 recenzija (sve) | ≈ $0.06 |
+| 2026-10-19 | **`04_recenzije_89_kaix.json`** (puna obrada) | `XmrN7J2tzBl2igxmc` | `5yQgI1vBDuoND5SDR` | **41.256 recenzija, 74 restorana** | ≈ $2.06 |
 
 Posle svakog pokretanja zapisati u `DNEVNIK.md`: datum, ID pokretanja (run ID), broj rezultata, cenu.

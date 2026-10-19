@@ -16,7 +16,9 @@ Dodaje kolone:
   closure_date_est, closure_source   za restorane koji ne rade (YYYY-MM i izvor)
   wb2018_*                        ocena, broj recenzija i raspodela ocena (%) sa snimka najbližeg 31. 7. 2018
   rad_n_reviews_2018              broj recenzija iz Ristanovićevog rada (kraj jula 2018)
-  history_complete_ratio          skinute recenzije do 31. 12. 2018 / rad_n_reviews_2018 (definicija mentora)
+  history_complete_ratio          skinute recenzije do 31. 12. 2018 / rad_n_reviews_2018 (definicija mentora);
+                                  prazno za obrisane stranice; za spojeni lokal (kafana „?“) imenilac je zbir oba unosa iz rada;
+                                  rad je sa kraja jula 2018, pa odnos > 1 kod restorana koji su rasli u drugoj polovini 2018
   sloj                            1 = samo prvi sloj (nivo restorana, ishod zatvaranje)
                                   2 = i drugi sloj (živa stranica, pune recenzije, history_complete_ratio ≥ 0,9)
 
@@ -92,8 +94,12 @@ def main():
         # #2 potpunost istorije i sloj
         n_rad = int(rad[i]["brojSvihRecenz"]) if i in rad else 0
         r["rad_n_reviews_2018"] = n_rad or ""
-        r["history_complete_ratio"] = f"{do_2018.get(i, 0) / n_rad:.3f}" if (do_2018 and n_rad) else ""
         ziva = r["status"] in ("open", "closed") and r["n_reviews_now"] != ""
+        # odnos samo za restorane čije su recenzije skidane; spojeni lokal: zbir svih unosa iz rada
+        clanovi = [k for k, v in entiteti.items() if v.get("entity_id") == r["entity_id"]] or [i]
+        n_rad_lokal = sum(int(rad[k]["brojSvihRecenz"]) for k in clanovi if k in rad)
+        r["history_complete_ratio"] = (f"{do_2018.get(i, 0) / n_rad_lokal:.3f}"
+                                       if (do_2018 and ziva and n_rad_lokal) else "")
         if not ziva:
             r["sloj"] = 1
         elif r["history_complete_ratio"] == "":

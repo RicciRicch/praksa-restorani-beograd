@@ -14,8 +14,18 @@ a proverava na recenzijama od 2019. do 2026.
 | Spisak 89 restorana iz rada (2019) | ✅ `podaci/izvor/ristanovic_2019_tabela.csv` |
 | 1a. Uparivanje sa TA URL-ovima → `podaci/restorani_89.csv` | ✅ 89/89 |
 | 1b. Trenutno stanje (Apify, ≈ $0.38) | ✅ open 72 · closed 3 · not_found 14 (TA obrisao stranicu; provereno u pregledaču) |
-| 1c. Procena troška koraka 2 → mentor | ✅ ≈ 41.000 recenzija → ≈ $78 (BRONZE) / $206 (FREE); ⏳ slanje mentoru |
-| 2. Sve recenzije → `podaci/recenzije_89.csv` | ✅ proba urađena (podešavanja rade; nalaz: Burger House bez istorije pre 2021) · ⏳ puna obrada čeka odobrenje |
+| 1c. Procena troška koraka 2 → mentor | ✅ poslato; uz promenu aktora ≈ $2 (besplatni kredit, uplata nije potrebna) |
+| 2. Sve recenzije → `podaci/recenzije_89.csv` | ✅ 41.256 recenzija, 74 restorana, sve provere prošle (osim Burger House) · sloj 2: 73 lokala |
+| Dopune po mentoru (#1–#5) | 🛠️ entiteti, slojevi, ratio ✅ · Wayback 2018 i obrisani u toku |
+
+## Aktori (Apify)
+| Namena | Aktor | Napomena |
+|---|---|---|
+| spisak i trenutno stanje (korak 1b) | `maxcopell/tripadvisor` | ≈ $0.005 po restoranu |
+| proba recenzija (korak 2) | `maxcopell/tripadvisor-reviews` | ≈ $0.005 po recenziji; puna obrada bi bila ≈ $78–206 |
+| **sve recenzije (korak 2)** | **`kaix/tripadvisor-reviews-scraper`** | **promena aktora 19. 10. 2026**: ≈ $0.05 / 1.000 recenzija (≈ $2 ukupno); na probi identičan maxcopell-u (iste recenzije, ocene, datumi, recenzenti); ≈ 1% tekstova mašinski prevedeno (označeno) |
+
+Aktor iz Filipovog diplomskog nije javno dostupan (u radu nije navedeno ime, a parametri ne odgovaraju nijednom javnom aktoru). Detalji: `DNEVNIK.md`, 19. 10. 2026; podešavanja i pokretanja: `apify/README.md`.
 
 ## Struktura
 | Putanja | Sadržaj | U gitu |
