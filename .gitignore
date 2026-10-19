@@ -21,3 +21,6 @@ __pycache__/
 Thumbs.db
 desktop.ini
 ~$*
+
+# Paket za mentora (sadrži lične podatke recenzenata)
+za_mentora_*
