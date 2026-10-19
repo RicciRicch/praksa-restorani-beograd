@@ -23,7 +23,7 @@ a proverava na recenzijama od 2019. do 2026.
 |---|---|---|
 | spisak i trenutno stanje (korak 1b) | `maxcopell/tripadvisor` | ≈ $0.005 po restoranu |
 | proba recenzija (korak 2) | `maxcopell/tripadvisor-reviews` | ≈ $0.005 po recenziji; puna obrada bi bila ≈ $78–206 |
-| **sve recenzije (korak 2)** | **`kaix/tripadvisor-reviews-scraper`** | **promena aktora 19. 10. 2026**: ≈ $0.05 / 1.000 recenzija (≈ $2 ukupno); na probi identičan maxcopell-u (iste recenzije, ocene, datumi, recenzenti); ≈ 1% tekstova mašinski prevedeno (označeno) |
+| **sve recenzije (korak 2)** | **`kaix/tripadvisor-reviews-scraper`** | **promena aktora 19. 10. 2026**: ≈ $0.05 / 1.000 recenzija (≈ $2 ukupno); na probi identičan maxcopell-u (iste recenzije, ocene, datumi, recenzenti); ≈ 1,7% tekstova (700) mašinski prevedeno (označeno) |
 
 Aktor iz Filipovog diplomskog nije javno dostupan (u radu nije navedeno ime, a parametri ne odgovaraju nijednom javnom aktoru). Detalji: `DNEVNIK.md`, 19. 10. 2026; podešavanja i pokretanja: `apify/README.md`.
 

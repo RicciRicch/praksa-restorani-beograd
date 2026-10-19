@@ -19,8 +19,9 @@ Prikupljeno 18–19. 10. 2026. Postupak i podešavanja aktora: `podesavanja_akto
 - 89 restorana = **88 lokala** (Znak Pitanja i Kafana Question Mark: `entity_id` 84).
 - Danas: 72 otvorena, 3 zatvorena (stranica postoji), 14 obrisanih stranica.
 - **Sloj 2** (pune recenzije, `history_complete_ratio` ≥ 0,9): 73 lokala. **Samo sloj 1**: 14 obrisanih + Burger House (TA ne prikazuje recenzije pre 2021).
-- Recenzije: 41.256; do 31. 12. 2018: 30.482 (73,9%); 42% nije na engleskom; ≈ 1% teksta mašinski prevedeno (`is_machine_translated`).
+- Recenzije: 41.256; do 31. 12. 2018: 30.482 (73,9%); 42% nije na engleskom; 1,7% teksta (700) mašinski prevedeno (`is_machine_translated`).
 - Stanje 2018 sa Wayback-a: 73/89 restorana (12/14 obrisanih).
+- Rekonstrukcija 2018 iz skinutih recenzija (do 31. 7. 2018) se za većinu restorana slaže sa brojevima iz rada na 97–99% (`provera_recenzija.md`, kolona „% rada“).
 - Datum zatvaranja: procenjen za 13/17 (donja granica), 4 nepoznato.
 
 ## Napomene

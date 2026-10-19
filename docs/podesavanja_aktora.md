@@ -50,12 +50,12 @@ a jedan unos (Znak Pitanja) je spojen sa drugim (Kafana Question Mark).
 | `sortBy` | `"recent"` | od najnovije ka najstarijoj |
 | bez `since` | – | nema datumskog reza |
 
-Rezultat: **41.256 recenzija** (jednako zbiru `numberOfReviews` na TA za 74 restorana), bez duplikata, najstarije iz 2008.
+Rezultat: **41.256 recenzija** (jednako zbiru `numberOfReviews` na TA za 74 restorana), bez duplikata, najstarija iz decembra 2007.
 Korišćena polja izlaza: `id`, `locationId`, `publishedDateISO`, `rating`, `helpfulVotes`, `originalLanguage`, `isTranslated`,
 `tripType`, `title`, `text`, `author.userId`, `author.username`, `author.profileUrl`, `author.totalContributions`.
 
 **Napomene za rad:**
-- Oko 1% tekstova aktor vraća mašinski prevedeno na engleski (`isTranslated = true`); originalni jezik je u `originalLanguage`.
+- 1,7% tekstova (700 od 41.256) aktor vraća mašinski prevedeno na engleski (`isTranslated = true`); originalni jezik je u `originalLanguage`.
   Ocene, datumi i podaci o recenzentu nisu pogođeni.
 - `author.totalContributions` je današnji broj doprinosa recenzenta (stanje u oktobru 2026), ne u trenutku pisanja recenzije.
 - Broj korisnih glasova recenzenta (na nivou profila) aktor ne vraća; kao mera kredibiliteta koristi se broj doprinosa.

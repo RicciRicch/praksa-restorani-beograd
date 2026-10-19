@@ -79,7 +79,7 @@ Zatvorene i nenađene **proveriti ručno** (TA ih nekad označi „Closed“, a 
 ⚠️ **Rizik za korak 2 (javiti mentoru):** za **14 obrisanih stranica** TripAdvisor više ne prikazuje recenzije, pa ih Apify ne može skinuti. Upravo zatvoreni restorani bi tako ostali bez istorije recenzija (pristrasnost preživljavanja u „trening“ delu). Moguće dopune: Wayback snimci stranica sa recenzijama (delimično), ili tretirati ih samo kroz ishod „zatvaranje“. Proba u koraku 2 treba da uključi bar jedan zatvoren restoran čija stranica postoji (Little Bay), da se vidi da li se njegove recenzije skidaju.
 
 ## Korak 2: sve recenzije (posle mentorovog odobrenja i uplate)
-> **Promena aktora (19. 10. 2026):** puna obrada ide preko **`kaix/tripadvisor-reviews-scraper`** (unos `apify/04_recenzije_89_kaix.json`: `maxReviews: 0` = sve, `language: "all"`, `sortBy: "recent"`), ≈ $2 umesto ≈ $78. Na probi daje iste recenzije kao maxcopell (vidi DNEVNIK); vraća i link profila recenzenta; ≈ 1% tekstova je mašinski prevedeno (`is_machine_translated`). Podešavanja ispod važe za maxcopell (proba i rezerva za restorane kojima bi nešto falilo).
+> **Promena aktora (19. 10. 2026):** puna obrada ide preko **`kaix/tripadvisor-reviews-scraper`** (unos `apify/04_recenzije_89_kaix.json`: `maxReviews: 0` = sve, `language: "all"`, `sortBy: "recent"`), ≈ $2 umesto ≈ $78. Na probi daje iste recenzije kao maxcopell (vidi DNEVNIK); vraća i link profila recenzenta; ≈ 1,7% tekstova (700 od 41.256) je mašinski prevedeno (`is_machine_translated`). Podešavanja ispod važe za maxcopell (proba i rezerva za restorane kojima bi nešto falilo).
 
 Apify `maxcopell/tripadvisor-reviews` (proba i rezerva). Podešavanja (najčešće mesto greške):
 
