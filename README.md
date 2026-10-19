@@ -16,6 +16,7 @@ a proverava na recenzijama od 2019. do 2026.
 | 1b. Trenutno stanje (Apify, ≈ $0.38) | ✅ open 72 · closed 3 · not_found 14 (TA obrisao stranicu; provereno u pregledaču) |
 | 1c. Procena troška koraka 2 → mentor | ✅ poslato; uz promenu aktora ≈ $2 (besplatni kredit, uplata nije potrebna) |
 | 2. Sve recenzije → `podaci/recenzije_89.csv` | ✅ 41.256 recenzija, 74 restorana, sve provere prošle (osim Burger House) · sloj 2: 73 lokala |
+| Paket za mentora (`collected-data.zip`) | ✅ poslat 19. 10. 2026; čeka se analiza |
 | Dopune po mentoru (#1–#5) | ✅ 88 lokala, slojevi (2: 73 lokala), `history_complete_ratio`, Wayback 2018 (73/89), zatvaranje (13/17) |
 
 ## Aktori (Apify)

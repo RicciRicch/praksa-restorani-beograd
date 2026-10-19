@@ -3,6 +3,10 @@
 Hronološki zapis odluka i koraka. Aktuelni plan: [`PLAN.md`](PLAN.md).
 Odbačeni planovi i skripte ostaju u istoriji gita (`git log`).
 
+## 2026-10-19: paket poslat mentoru
+- Završna provera paketa: CSV recenzija = sirov JSON (svih 41.256), svaki restoran 100% od `n_reviews_now`, rekonstrukcija 2018 97–99% od rada za većinu; ispravljene dve brojke u tekstu (mašinski prevod 1,7%, najstarija recenzija 12/2007).
+- Paket `collected-data.zip` (sirov JSON, `restorani_89.csv`, `recenzije_89.csv`, Wayback tabele, zapis podešavanja aktora, README) **poslat mentoru**. Čeka se kompozitni rang i analiza.
+
 ## 2026-10-19: Wayback 2018, obrisani restorani i zatvaranje (mentor #1, #5)
 - `skripte/07_wayback_2018.py`, dva prolaza (±12 meseci, pa 2016–2020 za ostale): **snimak za 73/89**, od toga **12/14 obrisanih**; 31 snimak ≤ 6 meseci, 40 ≤ 12 meseci od 31. 7. 2018 (udaljenost u `wb_days_from_2018_07_31`). Broj recenzija na snimku / rad: medijan 1,08 (nezavisna potvrda brojeva iz rada). Raspodela u % samo na izgledu iz 2018 (27 restorana); na izgledu iz 2019 samo brojevi za filter „English“. Bez snimka 2016–2020: 16 restorana. → `podaci/wayback_2018.csv`.
 - `skripte/08_wayback_obrisani.py`: sa svih sačuvanih snimaka 14 obrisanih stranica vraćeno samo **250 recenzija (162 do 2018)** od ≈ 3.900 iz rada (3–14% po restoranu; Wayback je uglavnom čuvao prvu stranu) → recenzije obrisanih nisu upotrebljive za drugi sloj; ostaju u prvom sloju. → `podaci/wayback_obrisani.csv`, `podaci/recenzije_wayback_obrisani.csv` (van gita).
