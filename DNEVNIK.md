@@ -3,6 +3,14 @@
 Hronološki zapis odluka i koraka. Aktuelni plan: [`PLAN.md`](PLAN.md).
 Odbačeni planovi i skripte ostaju u istoriji gita (`git log`).
 
+## 2026-10-19: odgovor mentora, Wayback 2018, izbor aktora
+- Odgovor mentora sačuvan: `docs/odgovor_mentora_2026-10-19.md` (dva sloja, Wayback stanje 2018 za svih 89, `history_complete_ratio` ≥ 0,9 za drugi sloj, `entity_note`, 88 lokala, `closure_date_est`/`closure_source`, provera Filipovog aktora).
+- **Filipov aktor**: u radu (Prilog 2) navedeni su samo parametri (`locationIds`, `maxReviewsPerLocation`, `sinceDate`, `includeTranslated`, `includeLocationRow`), ne ime; nijedan javni aktor u Apify Store-u nema te parametre → verovatno iznajmljen/privatan.
+- **`kaix/tripadvisor-reviews-scraper`** (predložio Dušan; parametri se ne poklapaju sa Filipovim, ali naplata ≈ $0.05 / 1.000 recenzija): proba (run `BLykezMZaZVq8GSND`, ≈ $0.06) na ABC, Burger House i celom Little Bay-u → 1.239 / 1.239 recenzija; svih 146 recenzija iz maxcopell probe identične (ocena, datum, korisni glasovi, jezik, recenzent; broj doprinosa razlikuje se kod 1). Little Bay do 31. 7. 2018: 789 prema Ristanovićevih 805 (98%). Vraća i link profila recenzenta; 1,3% tekstova mašinski prevedeno (oznaka `is_machine_translated`, `language` ostaje originalni).
+- **Izbor:** kaix za punu obradu → ≈ 41.256 recenzija ≈ **$2**, staje u besplatni kredit (mentor ne mora da uplaćuje). Unos `apify/04_recenzije_89_kaix.json`; skripta 05 podržava oba formata.
+- Poslednje recenzije zatvorenih sa stranicom: Terminal 2025-08-12, Bistro Grad 2025-07-28 (Apify run `shtD0j40uliAFllLM`), Little Bay 2025-09-10.
+- Nove skripte: `07_wayback_2018.py` (stanje 2018 za svih 89; radi sporo zbog Wayback ograničenja 503), `08_wayback_obrisani.py` (recenzije i zatvaranje za 14 obrisanih), `09_dopune_restorani.py` (entity_id/entity_note, sloj, closure_*, wb2018_*, history_complete_ratio). Ručne tabele: `podaci/izvor/entiteti_rucno.csv`, `podaci/izvor/zatvaranje_rucno.csv`.
+
 ## 2026-10-18: proba koraka 2 (besplatni kredit, ≈ $0.73)
 - Proba A (run `TkevWdelMVCgm8JzB`): ABC Restoran 74/74 recenzija, najstarija 2008; do 31. 7. 2018 ima 64 prema Ristanovićevih 66 (97%) → rekonstrukcija stanja 2018 radi.
 - Proba A: **Burger House Bros 52/52, ali najstarija iz 2021**; Ristanović je 2018 imao 214 → TA je izgubio/resetovao staru istoriju (restoran preimenovan). Mentorove provere 1–4 to ne hvataju → dodata **provera 6** (do 31. 7. 2018 vs. Ristanović, prag 80%).
