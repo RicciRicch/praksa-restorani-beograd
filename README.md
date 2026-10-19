@@ -16,7 +16,7 @@ a proverava na recenzijama od 2019. do 2026.
 | 1b. Trenutno stanje (Apify, ≈ $0.38) | ✅ open 72 · closed 3 · not_found 14 (TA obrisao stranicu; provereno u pregledaču) |
 | 1c. Procena troška koraka 2 → mentor | ✅ poslato; uz promenu aktora ≈ $2 (besplatni kredit, uplata nije potrebna) |
 | 2. Sve recenzije → `podaci/recenzije_89.csv` | ✅ 41.256 recenzija, 74 restorana, sve provere prošle (osim Burger House) · sloj 2: 73 lokala |
-| Dopune po mentoru (#1–#5) | 🛠️ entiteti, slojevi, ratio ✅ · Wayback 2018 i obrisani u toku |
+| Dopune po mentoru (#1–#5) | ✅ 88 lokala, slojevi (2: 73 lokala), `history_complete_ratio`, Wayback 2018 (73/89), zatvaranje (13/17) |
 
 ## Aktori (Apify)
 | Namena | Aktor | Napomena |
@@ -50,6 +50,9 @@ python skripte/04_apify_unos_recenzije.py
 # korak 2, posle Apify pokretanja (sirov JSON sačuvati u podaci/raw/):
 python skripte/05_recenzije_csv.py podaci/raw/recenzije_89.json
 python skripte/06_provere_recenzija.py
+python -u skripte/07_wayback_2018.py && python -u skripte/07_wayback_2018.py --od 20160101 --do 20201231
+python -u skripte/08_wayback_obrisani.py
+python skripte/09_dopune_restorani.py
 ```
 Skripta 03 čita `podaci/raw/trenutno_stanje_89.json` (izvoz Apify dataseta `fD0hruEEb3J6hOWWg`, van gita).
 Za probu: `05_recenzije_csv.py podaci/raw/recenzije_proba.json --izlaz podaci/recenzije_proba.csv`, pa `06_provere_recenzija.py --proba podaci/recenzije_proba.csv --izvestaj podaci/provera_recenzija_proba.md`.

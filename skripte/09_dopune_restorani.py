@@ -77,7 +77,14 @@ def main():
             o = obrisani[i]
             poslednja = o.get("wb_najnovija", "")
             r["closure_date_est"] = poslednja[:7]
-            r["closure_source"] = (f"TA stranica obrisana (provera 18.10.2026); Wayback: poslednja sačuvana recenzija "
+            if not poslednja:
+                r["closure_source"] = (f"TA stranica obrisana (provera 18.10.2026); datum nepoznat: na sačuvanim Wayback "
+                                       f"snimcima nema recenzija; poslednji snimak {o.get('wb_poslednji_snimak') or '–'}")
+                continue_ok = True
+            else:
+                continue_ok = False
+            if not continue_ok:
+              r["closure_source"] = (f"TA stranica obrisana (provera 18.10.2026); Wayback: poslednja sačuvana recenzija "
                                    f"{poslednja or '–'}, poslednji snimak {o.get('wb_poslednji_snimak') or '–'}, "
                                    f"oznaka CLOSED na poslednjem snimku: {'da' if o.get('wb_closed_na_poslednjem') == 'True' else 'ne'}"
                                    f" → zatvaranje posle poslednje recenzije (donja granica)")
