@@ -7,9 +7,9 @@ Prikupljeno 18–19. 10. 2026. Postupak i podešavanja aktora: `podesavanja_akto
 |---|---|---|
 | `restorani_89.csv` | restoran (89) | uparivanje sa TA, trenutno stanje (2026), stanje 2018 sa Wayback-a (`wb2018_*`), `entity_id`/`entity_note`, `closure_date_est`/`closure_source`, `rad_n_reviews_2018`, `history_complete_ratio`, `sloj` |
 | `recenzije_89.csv` | recenzija (41.256) | sve recenzije 74 restorana sa živim stranicama: `id_2018`, `tripadvisor_location_id`, `review_id`, `review_date`, `rating`, `reviewer_id`, `reviewer_username`, `reviewer_profile_url`, `reviewer_contributions`, `review_helpful_votes`, `language`, `is_machine_translated`, `trip_type`, `title`, `text` |
-| `wayback_2018.csv` | restoran (89) | snimak TA stranice najbliži 31. 7. 2018: datum i udaljenost, ocena, broj recenzija, raspodela ocena (% svi jezici; brojevi za engleski), rang, adresa |
-| `wayback_obrisani.csv` | restoran (14) | obrisane stranice: broj snimaka, vraćene recenzije (ukupno / do 2018) vs. rad, poslednji snimak i recenzija |
-| `recenzije_wayback_obrisani.csv` | recenzija (250) | recenzije obrisanih restorana sa Wayback snimaka (delimično; broj doprinosa recenzenta *u trenutku snimka*) |
+| `wayback/wayback_2018.csv` | restoran (89) | snimak TA stranice najbliži 31. 7. 2018: datum i udaljenost, ocena, broj recenzija, raspodela ocena (% svi jezici; brojevi za engleski), rang, adresa |
+| `wayback/wayback_obrisani.csv` | restoran (14) | obrisane stranice: broj snimaka, vraćene recenzije (ukupno / do 2018) vs. rad, poslednji snimak i recenzija |
+| `wayback/recenzije_wayback_obrisani.csv` | recenzija (250) | recenzije obrisanih restorana sa Wayback snimaka (delimično; broj doprinosa recenzenta *u trenutku snimka*) |
 | `provera_recenzija.md` | – | rezultat provera iz uputstva (potpunost, najstariji datum, duplikati, udeo do 2018, jezici, poređenje sa radom) |
 
 ## Sirovi podaci

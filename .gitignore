@@ -24,3 +24,5 @@ desktop.ini
 
 # Paket za mentora (sadrži lične podatke recenzenata)
 za_mentora_*
+collected-data/
+collected-data.zip
